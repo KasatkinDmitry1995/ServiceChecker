@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ServiceChecker": {
+      "commandName": "Project",
+      "debugEngines": "managed,native"
+    }
+  }
+}

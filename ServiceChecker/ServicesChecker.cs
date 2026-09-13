@@ -42,7 +42,7 @@ namespace ServiceChecker
             var tasks = taskList.Select(async task =>
             {
 
-                await semaphore.WaitAsync(ct);
+                await semaphore.WaitAsync();
 
                 if (ct.IsCancellationRequested)
                 {

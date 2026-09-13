@@ -12,9 +12,6 @@ namespace ServiceChecker
         static async Task Main(string[] args)
         {
 
-            using var cts = new CancellationTokenSource();
-            Console.CancelKeyPress += (_, e) => { e.Cancel = true; cts.Cancel(); };
-
             var inputFilenameOpt = new Option<string>("--input_file")
             {
                 Description = "Имя входного файла. По-умолчанию \"links.json\".",
@@ -38,19 +35,19 @@ namespace ServiceChecker
             rootCommand.Options.Add(outputFilenameOpt);
             rootCommand.Options.Add(maxThreadsOpt);
 
-            rootCommand.SetAction(async parseResult =>
+            rootCommand.SetAction(async (parseResult, cancellationToken) =>
             {
+
                 var taskList = TasksLoader.Load(parseResult.GetValue(inputFilenameOpt));
-                var servicesChecker = new ServicesChecker(taskList, parseResult.GetValue(maxThreadsOpt), cts.Token);
+                var servicesChecker = new ServicesChecker(taskList, parseResult.GetValue(maxThreadsOpt), cancellationToken);
 
                 try
                 {
                     await servicesChecker.Run();
-                    cts.Token.ThrowIfCancellationRequested();
+                    cancellationToken.ThrowIfCancellationRequested();
                 }catch(OperationCanceledException)
                 {
-                    if (cts.IsCancellationRequested)
-                        Environment.ExitCode = (int)ExitCodes.Interrupted;
+                    Environment.ExitCode = (int)ExitCodes.Interrupted;
                 }
                 finally
                 {
