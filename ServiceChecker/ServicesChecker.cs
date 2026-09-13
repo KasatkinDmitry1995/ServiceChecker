@@ -8,7 +8,6 @@ namespace ServiceChecker
 {
     internal class ServicesChecker
     {
-        List<TaskDefinition> tasks;
         ConcurrentBag<TaskResult> results;
         private IReadOnlyList<TaskDefinition> taskList;
         private int maxThreads;
@@ -37,7 +36,7 @@ namespace ServiceChecker
             int completedCount = 0;
             var semaphore = new SemaphoreSlim(maxThreads);
             object _progressLock = new object();
-            var progress = new ProgressReporter(taskList.Count());
+            var progress = new ProgressReporter(taskList.Count);
 
             var tasks = taskList.Select(async task =>
             {
@@ -48,6 +47,8 @@ namespace ServiceChecker
                 Stopwatch sw = new Stopwatch();
                 TaskResult? result = null;
 
+                CancellationTokenSource? timeoutCts = null;
+
                 using (HttpClient client = new HttpClient())
                 {
                     var timeoutSpan = TimeSpan.FromSeconds(task.Timeout);
@@ -55,13 +56,15 @@ namespace ServiceChecker
                     while (remainingRetries-- != 0)
                     {
 
-                        using var timeoutCts = new CancellationTokenSource(timeoutSpan);
-                        using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(
-                            ct, timeoutCts.Token);
-
                         try
                         {
+
                             ct.ThrowIfCancellationRequested();
+
+                            timeoutCts = new CancellationTokenSource(timeoutSpan);
+
+                            using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(
+                                ct, timeoutCts.Token);
 
                             sw.Restart();
                             var response = await client.GetAsync(task.Url, linkedCts.Token);
@@ -78,7 +81,7 @@ namespace ServiceChecker
                             break;
 
                         }
-                        catch (OperationCanceledException ex) when (timeoutCts.IsCancellationRequested)
+                        catch (OperationCanceledException) when (timeoutCts?.IsCancellationRequested ?? false)
                         {
                             if (remainingRetries != 0)
                                 continue;
@@ -101,6 +104,7 @@ namespace ServiceChecker
                         }
                         finally
                         {
+                            timeoutCts?.Dispose();
                             if (result is not null)
                             {
                                 results.Add(result);

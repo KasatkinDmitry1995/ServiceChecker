@@ -12,6 +12,18 @@ namespace ServiceChecker
         static async Task Main(string[] args)
         {
 
+            static void AddNotEmptyValidator(Option<string> option)
+            {
+                option.Validators.Add(result =>
+                {
+                    string? value = result.GetValue(option);
+                    if (string.IsNullOrWhiteSpace(value))
+                    {
+                        result.AddError($"Значение для {option.Name} не может быть пустым.");
+                    }
+                });
+            }
+
             var inputFilenameOpt = new Option<string>("--input_file")
             {
                 Description = "Имя входного файла. По-умолчанию \"links.json\".",
@@ -30,6 +42,9 @@ namespace ServiceChecker
                 DefaultValueFactory = parseResult => 3,
             };
 
+            AddNotEmptyValidator(inputFilenameOpt);
+            AddNotEmptyValidator(outputFilenameOpt);
+
             RootCommand rootCommand = new();
             rootCommand.Options.Add(inputFilenameOpt);
             rootCommand.Options.Add(outputFilenameOpt);
@@ -38,7 +53,7 @@ namespace ServiceChecker
             rootCommand.SetAction(async (parseResult, cancellationToken) =>
             {
 
-                var taskList = TasksLoader.Load(parseResult.GetValue(inputFilenameOpt));
+                var taskList = TasksLoader.Load(parseResult.GetValue(inputFilenameOpt)!);
                 var servicesChecker = new ServicesChecker(taskList, parseResult.GetValue(maxThreadsOpt), cancellationToken);
 
                 try
@@ -58,7 +73,7 @@ namespace ServiceChecker
                         WriteIndented = true
                     };
                     var json = JsonSerializer.Serialize(resultsSorted, options);
-                    File.WriteAllText(parseResult.GetValue(outputFilenameOpt), json);
+                    File.WriteAllText(parseResult.GetValue(outputFilenameOpt)!, json);
 
                     Console.Clear();
 
