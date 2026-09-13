@@ -44,12 +44,6 @@ namespace ServiceChecker
 
                 await semaphore.WaitAsync();
 
-                if (ct.IsCancellationRequested)
-                {
-                    semaphore.Release();
-                    return;
-                }
-
                 int remainingRetries = task.Retry+1;
                 Stopwatch sw = new Stopwatch();
                 TaskResult? result = null;
