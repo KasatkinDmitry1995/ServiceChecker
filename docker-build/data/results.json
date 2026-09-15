@@ -1,0 +1,242 @@
+[
+  {
+    "Name": "google",
+    "Url": "https://google.com",
+    "Latency": 900,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": 200,
+    "CheckStatus": "OK"
+  },
+  {
+    "Name": "mail.ru",
+    "Url": "https://mail.ru",
+    "Latency": 725,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": 200,
+    "CheckStatus": "OK"
+  },
+  {
+    "Name": "user-service",
+    "Url": "https://users.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 204,
+    "ActualStatusCode": -1,
+    "CheckStatus": "ERROR"
+  },
+  {
+    "Name": "auth-service",
+    "Url": "https://auth.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "ERROR"
+  },
+  {
+    "Name": "mail-gateway",
+    "Url": "https://mail.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "ERROR"
+  },
+  {
+    "Name": "file-storage",
+    "Url": "https://files.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "ERROR"
+  },
+  {
+    "Name": "analytics-service",
+    "Url": "https://analytics.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "ERROR"
+  },
+  {
+    "Name": "notification-service",
+    "Url": "https://notify.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "ERROR"
+  },
+  {
+    "Name": "billing-service",
+    "Url": "https://billing.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "ERROR"
+  },
+  {
+    "Name": "cache-service",
+    "Url": "http://httpbin.org/drip?delay=1\u0026code=202\u0026numbytes=10\u0026duration=1",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "TIMEOUT"
+  },
+  {
+    "Name": "reporting-service",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": 203,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": 203,
+    "CheckStatus": "UNEXPECTED_STATUS"
+  },
+  {
+    "Name": "queue-service",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": 168,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": 203,
+    "CheckStatus": "UNEXPECTED_STATUS"
+  },
+  {
+    "Name": "analytics-service",
+    "Url": "https://analytics.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "sms-gateway",
+    "Url": "http://httpbin.org/drip?delay=3\u0026code=204\u0026numbytes=10\u0026duration=1",
+    "Latency": -1,
+    "ExpectedStatusCode": 204,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "mail.ru",
+    "Url": "https://mail.ru",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "user-service",
+    "Url": "https://users.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 204,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "billing-service",
+    "Url": "https://billing.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "api-gateway",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": -1,
+    "ExpectedStatusCode": 204,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "queue-service",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "cache-service",
+    "Url": "http://httpbin.org/drip?delay=1\u0026code=202\u0026numbytes=10\u0026duration=1",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "api-gateway",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": -1,
+    "ExpectedStatusCode": 204,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "admin-panel",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": -1,
+    "ExpectedStatusCode": 203,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "reporting-service",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "file-storage",
+    "Url": "https://files.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "admin-panel",
+    "Url": "http://httpbin.org/status/203",
+    "Latency": -1,
+    "ExpectedStatusCode": 203,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "mail-gateway",
+    "Url": "https://mail.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "notification-service",
+    "Url": "https://notify.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "google",
+    "Url": "https://google.com",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "auth-service",
+    "Url": "https://auth.example.com/health",
+    "Latency": -1,
+    "ExpectedStatusCode": 200,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  },
+  {
+    "Name": "sms-gateway",
+    "Url": "http://httpbin.org/drip?delay=3\u0026code=204\u0026numbytes=10\u0026duration=1",
+    "Latency": -1,
+    "ExpectedStatusCode": 204,
+    "ActualStatusCode": -1,
+    "CheckStatus": "CANCELED"
+  }
+]

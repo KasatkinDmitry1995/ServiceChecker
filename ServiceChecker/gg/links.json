@@ -1,0 +1,212 @@
+[
+  {
+    "name": "auth-service",
+    "url": "https://auth.example.com/health",
+    "retry": 3,
+    "timeout": 5,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "billing-service",
+    "url": "https://billing.example.com/health",
+    "retry": 2,
+    "timeout": 10,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "google",
+    "url": "https://google.com",
+    "retry": 5,
+    "timeout": 15,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "user-service",
+    "url": "https://users.example.com/health",
+    "retry": 1,
+    "timeout": 3,
+    "expectedStatusCode": 204
+  },
+  {
+    "name": "notification-service",
+    "url": "https://notify.example.com/health",
+    "retry": 0,
+    "timeout": 1,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "mail.ru",
+    "url": "https://mail.ru",
+    "retry": 2,
+    "timeout": 8,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "analytics-service",
+    "url": "https://analytics.example.com/health",
+    "retry": 3,
+    "timeout": 12,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "file-storage",
+    "url": "https://files.example.com/health",
+    "retry": 1,
+    "timeout": 6,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "mail-gateway",
+    "url": "https://mail.example.com/health",
+    "retry": 4,
+    "timeout": 20,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "sms-gateway",
+    "url": "http://httpbin.org/drip?delay=3&code=204&numbytes=10&duration=1",
+    "retry": 2,
+    "timeout": 9,
+    "expectedStatusCode": 204
+  },
+  {
+    "name": "cache-service",
+    "url": "http://httpbin.org/drip?delay=1&code=202&numbytes=10&duration=1",
+    "retry": 0,
+    "timeout": 2,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "queue-service",
+    "url": "http://httpbin.org/status/203",
+    "retry": 3,
+    "timeout": 7,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "reporting-service",
+    "url": "http://httpbin.org/status/203",
+    "retry": 1,
+    "timeout": 30,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "admin-panel",
+    "url": "http://httpbin.org/status/203",
+    "retry": 2,
+    "timeout": 4,
+    "expectedStatusCode": 203
+  },
+  {
+    "name": "api-gateway",
+    "url": "http://httpbin.org/status/203",
+    "retry": 5,
+    "timeout": 5,
+    "expectedStatusCode": 204
+  },
+  {
+    "name": "auth-service",
+    "url": "https://auth.example.com/health",
+    "retry": 3,
+    "timeout": 5,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "billing-service",
+    "url": "https://billing.example.com/health",
+    "retry": 2,
+    "timeout": 10,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "google",
+    "url": "https://google.com",
+    "retry": 5,
+    "timeout": 15,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "user-service",
+    "url": "https://users.example.com/health",
+    "retry": 1,
+    "timeout": 3,
+    "expectedStatusCode": 204
+  },
+  {
+    "name": "notification-service",
+    "url": "https://notify.example.com/health",
+    "retry": 0,
+    "timeout": 1,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "mail.ru",
+    "url": "https://mail.ru",
+    "retry": 2,
+    "timeout": 8,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "analytics-service",
+    "url": "https://analytics.example.com/health",
+    "retry": 3,
+    "timeout": 12,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "file-storage",
+    "url": "https://files.example.com/health",
+    "retry": 1,
+    "timeout": 6,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "mail-gateway",
+    "url": "https://mail.example.com/health",
+    "retry": 4,
+    "timeout": 20,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "sms-gateway",
+    "url": "http://httpbin.org/drip?delay=3&code=204&numbytes=10&duration=1",
+    "retry": 2,
+    "timeout": 9,
+    "expectedStatusCode": 204
+  },
+  {
+    "name": "cache-service",
+    "url": "http://httpbin.org/drip?delay=1&code=202&numbytes=10&duration=1",
+    "retry": 0,
+    "timeout": 2,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "queue-service",
+    "url": "http://httpbin.org/status/203",
+    "retry": 3,
+    "timeout": 7,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "reporting-service",
+    "url": "http://httpbin.org/status/203",
+    "retry": 1,
+    "timeout": 30,
+    "expectedStatusCode": 200
+  },
+  {
+    "name": "admin-panel",
+    "url": "http://httpbin.org/status/203",
+    "retry": 2,
+    "timeout": 4,
+    "expectedStatusCode": 203
+  },
+  {
+    "name": "api-gateway",
+    "url": "http://httpbin.org/status/203",
+    "retry": 5,
+    "timeout": 5,
+    "expectedStatusCode": 204
+  }
+]
